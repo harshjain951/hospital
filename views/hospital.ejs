@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <form class="" action="/hospital" method="post" enctype="multipart/form-data">
+    <label>Patient name</label>
+    <input type="text" name="name" value="">
+    <label>Age</label>
+    <input type="number" name="age" value="">
+    <label>Gender</label>
+    <input type="text" name="gender" value="">
+    <label>Date of scan</label>
+    <input type="date" name="date" value="">
+    <label>Doctor name</label>
+    <input type="text" name="doctor" value="">
+    <label>scans</label>
+    <input type="file" name="scans" value="" accept="image/*" multiple>
+    <button type="submit" name="button">submit</button>
+
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Patient name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Date of scan</th>
+        <th scope="col">Doctor name</th>
+        <th scope="col">Report Status</th>
+        <th scope="col">Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% patients.forEach(function(post) { %>
+      <tr>
+        <td><%=post.Patient%></td>
+        <td><%=post.Age%></td>
+        <td><%=post.Gender%></td>
+        <td><%=post.Date%></td>
+        <td><a href="/doctor/<%=post.Docname%>"><%=post.Docname%></a></td>
+        <td><%=post.Reportstatus%></td>
+        <td><a href="/report/<%=post.Patient%>">Report</a></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>

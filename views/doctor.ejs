@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <title></title>
+  </head>
+  <body>
+    <span>
+      <p><%=posts.name%></p>
+    </span>
+    <a href="/chat"><i class="fas fa-comments" style="font-size:48px;"></i></a>
+    <br>
+    <br>
+    <br>
+    <%for (var i = 0; i < posts.Data.length; i++) {%>
+      <tr>
+        <td><%=posts.Data[i].Patient%></td>
+        <td><%=posts.Data[i].Age%></td>
+        <td><%=posts.Data[i].Gender%></td>
+        <td><%=posts.Data[i].Date%></td>
+      </tr>
+    <p><img src="/uploads/<%=posts.Data[i].Image%>" alt="" width="200" height="400"></p>
+    <form class="" action="/doctor/<%=posts.Data[i].Patient%>" method="post">
+      <label>Report</label>
+      <textarea name="report" rows="8" cols="80"></textarea>
+      <button type="submit" name="button">submit report</button>
+    </form>
+
+    <%}%>
+  </body>
+</html>
